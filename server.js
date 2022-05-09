@@ -36,9 +36,9 @@ app.use('/', require('./routes/api/states'));
 
 app.all('*', (req, res) => {
     res.status(404);
-    if (req.accepts('html')) {
+    if (req.accepts('text/html')) {
         res.sendFile(path.join(__dirname, 'views', '404.html'));
-    } else if (req.accepts('json')) {
+    } else if (req.accepts('application/json')) {
         res.json({ "error": "404 Not Found" });
     } else {
         res.type('txt').send("404 Not Found");
