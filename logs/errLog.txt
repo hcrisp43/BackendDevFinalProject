@@ -1,2 +1,6 @@
 20220503	19:49:40	2ff07060-6bc9-40f1-a85e-03ea14012bc7	Error: ENOENT: no such file or directory, stat 'D:\hcrisp43.github.io\INF653\FinalProject\views\404.html'
 20220503	19:49:40	61e81ef2-b34a-48c1-b11d-7e6d43e14fa7	Error: ENOENT: no such file or directory, stat 'D:\hcrisp43.github.io\INF653\FinalProject\views\404.html'
+20220505	16:44:18	64b48479-1db0-403d-b08e-35ee8b2d6b8e	SyntaxError: Unexpected token " in JSON at position 0
+20220505	16:44:27	0d4fadfb-5275-4779-be0c-7c794bf7fb8d	SyntaxError: Unexpected token f in JSON at position 2
+20220505	16:44:51	011ccb83-293c-4611-992f-315796783155	SyntaxError: Unexpected token ' in JSON at position 2
+20220505	16:45:04	ab0daaa7-067f-4ec2-a78f-0c89bbf99fd7	SyntaxError: Unexpected token " in JSON at position 0
