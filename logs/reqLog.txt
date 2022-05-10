@@ -129,3 +129,5 @@
 20220510	15:17:15	6cf7a18c-5f3d-4438-ba86-abaa2dd5fc8e	GET	undefined	/states/NH
 20220510	15:18:03	127a2ceb-e90a-4022-b88f-71d51432e33c	GET	undefined	/states/NH
 20220510	15:24:18	dcad5b81-6cf3-40c2-8939-2191118b1fad	GET	undefined	/states/NH
+20220510	15:59:31	0c1eccf8-bedd-4cba-8367-8a83decfec9f	GET	undefined	/states/GA
+20220510	16:00:01	c9b1d9fd-9250-4fed-8eef-c826252d3362	GET	undefined	/states/GA/funfact
