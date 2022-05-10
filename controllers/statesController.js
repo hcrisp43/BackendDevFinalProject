@@ -54,6 +54,11 @@ const getState = async (req, res) => {
 const getStateFacts = async(req, res) =>{
     //Get state object from MongoDB
     const state = await StateList.findOne({ stateCode: req.code}).exec();
+
+    //Get state object from states.json
+    const stateLocalData = statesJSONData.find(st => st.code === req.code);
+
+    if(!state?.funfact) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}`});
     
     //Generate a random index
     let randIndex = Math.floor(Math.random() * (state.funfacts.length - 1));
