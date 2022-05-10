@@ -54,20 +54,17 @@ const getState = async (req, res) => {
 const getStateFacts = async(req, res) =>{
     //Get state object from MongoDB
     const state = await StateList.findOne({ stateCode: req.code}).exec();
-
     //Get state object from states.json
     const stateLocalData = statesJSONData.find(st => st.code === req.code);
 
-    if(!state?.funfact){
-        res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}`});
-    }
-    else{
-        //Generate a random index
-        let randIndex = Math.floor(Math.random() * (state.funfacts.length - 1));
+    if(!state?.funfacts) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}`});
+    
+    //Generate a random index
+    let randIndex = Math.floor(Math.random() * (state.funfacts.length - 1));
 
-        //Return random fun fact
-        res.json({ "funfact" : state.funfacts[randIndex] });
-    }
+    //Return random fun fact
+    res.json({ "funfact" : state.funfacts[randIndex] });
+    
 };
 
 const getStateCapital = async(req, res) =>{
@@ -138,21 +135,19 @@ const patchFunFact = async(req, res) => {
     //Get state object from states.json
     const stateLocalData = statesJSONData.find(st => st.code === req.code);
 
-    if(!state?.funfact){ 
-        res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}` });
-    }
-    else {    
-        let factIndex = req.body.index - 1;
-        //If index is outside list size, 400 status
-        if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': `No Fun Fact found at that index for ${stateLocalData.state}` });
+    if(!state?.funfacts) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}` });
+      
+    let factIndex = req.body.index - 1;
+    //If index is outside list size, 400 status
+    if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': `No Fun Fact found at that index for ${stateLocalData.state}` });
 
-        //Set funfact at index to body of req
-        state.funfacts[factIndex] = req.body.funfact;
+    //Set funfact at index to body of req
+    state.funfacts[factIndex] = req.body.funfact;
 
-        //Save and return result
-        const result = await state.save();
-        res.json(result);
-    }
+    //Save and return result
+    const result = await state.save();
+     res.json(result);
+    
 };
 
 const deleteFunFact = async(req, res) => {
@@ -169,7 +164,7 @@ const deleteFunFact = async(req, res) => {
     //Get state object from states.json
     const stateLocalData = statesJSONData.find(st => st.code === req.code);
 
-    if(!state?.funfact) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}` });
+    if(!state?.funfacts) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}` });
 
     let factIndex = req.body.index - 1;
     //If index is outside list size, 400 status

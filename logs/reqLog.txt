@@ -131,3 +131,9 @@
 20220510	15:24:18	dcad5b81-6cf3-40c2-8939-2191118b1fad	GET	undefined	/states/NH
 20220510	15:59:31	0c1eccf8-bedd-4cba-8367-8a83decfec9f	GET	undefined	/states/GA
 20220510	16:00:01	c9b1d9fd-9250-4fed-8eef-c826252d3362	GET	undefined	/states/GA/funfact
+20220510	16:09:30	cc6ecfc0-ff1c-44a6-8a2c-ef27fb89f2ae	GET	undefined	/states/MO/funfact
+20220510	16:09:49	37b3fa8d-1a61-4438-99f6-6ea3ab2885b9	GET	undefined	/states/OK/funfact
+20220510	16:10:15	b91a4246-71ca-4a5f-821a-227e62a014bd	GET	undefined	/states/OK
+20220510	16:10:56	d6986b79-ec45-4e0a-973d-27309b8efe7d	GET	undefined	/states/OK/funfact
+20220510	16:11:57	7b8a53d6-5ca8-4f02-a001-b2c1893f60d0	GET	undefined	/states/OK/funfact
+20220510	16:13:28	3bdb1589-c90b-4400-9ef7-0e0a19914cdc	GET	undefined	/states/MO/funfact
