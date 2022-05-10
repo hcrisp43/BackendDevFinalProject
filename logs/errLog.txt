@@ -4,3 +4,5 @@
 20220505	16:44:27	0d4fadfb-5275-4779-be0c-7c794bf7fb8d	SyntaxError: Unexpected token f in JSON at position 2
 20220505	16:44:51	011ccb83-293c-4611-992f-315796783155	SyntaxError: Unexpected token ' in JSON at position 2
 20220505	16:45:04	ab0daaa7-067f-4ec2-a78f-0c89bbf99fd7	SyntaxError: Unexpected token " in JSON at position 0
+20220510	16:46:31	094d21c2-720f-404c-90a6-eeed950e3831	SyntaxError: Unexpected token } in JSON at position 19
+20220510	16:50:17	8ffe1f59-e0d9-4433-b0c8-754630b22b7e	SyntaxError: Unexpected token } in JSON at position 16

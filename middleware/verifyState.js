@@ -9,7 +9,7 @@ const verifyState = async (req, res, next) => {
     const isState = stateCodes.find(code => code === stateAbbr);
 
     if(!isState){
-        return res.status(400).json({ 'message': `No state found matching ${req.params.state}`});
+        return res.status(400).json({ 'message': 'Invalid state abbreviation parameter'});
     }
 
     req.code = stateAbbr;

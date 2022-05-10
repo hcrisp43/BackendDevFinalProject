@@ -62,10 +62,10 @@ const getStateFacts = async(req, res) =>{
     }
     else{
         //Generate a random index
-        let randIndex = Math.floor(Math.random() * (state.funfacts.length - 1));
+        //let randIndex = Math.floor(Math.random() * (state.funfacts.length - 1));
 
         //Return random fun fact
-        res.json({ "funfact" : state.funfacts[randIndex] });
+        res.json({ "funfact" : state.funfacts[0] });
     }
     
 };
@@ -99,7 +99,9 @@ const getAdmission = async(req, res) =>{
 };
 
 const addNewStateFacts = async(req, res) =>{
-    if(!req?.body?.funfact) return res.status(400).json({ 'message': 'Fun facts requried'});
+    if(!req?.body?.funfact) return res.status(400).json({ 'message': 'State fun facts value required'});
+    if(req.body.funfact.constructor  !== Array) return res.status(400).json({ 'message': 'State fun facts value must be an array'});
+
     const state = await StateList.findOne({ stateCode: req.code}).exec();
 
     //If state has no funfacts in DB, create a new entry
@@ -159,9 +161,6 @@ const patchFunFact = async(req, res) => {
 const deleteFunFact = async(req, res) => {
 
     //Check if index is set
-    if(!req?.body?.index) return res.status(400).json({ 'message': 'State fun fact value required' });
-
-    //Check if index is set
     if(!req?.body?.index) return res.status(400).json({ 'message': 'State fun fact index value required' });
 
     //Find DB entry
@@ -179,7 +178,7 @@ const deleteFunFact = async(req, res) => {
         if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': `No Fun Fact found at that index for ${stateLocalData.state}` });
 
         //Delete funfact at index
-        state.funfacts = state.funfacts.splice(factIndex, factIndex);
+        state.funfacts.splice(factIndex, factIndex);
 
 
         //Save and return result
