@@ -38,19 +38,22 @@ const getState = async (req, res) => {
     // Assumes verifyState has passed and state code exists
 
     //Get state object from MongoDB
-    const state = await StateList.findOne({ _stateCode: req.code}).exec();
-
+    const state = await StateList.findOne({ stateCode: req.code}).exec();
+    console.log(state);
     //Get state object from states.json
     const stateLocalData = statesJSONData.find(st => st.code === req.code);
     
     //Combine both objects and return
-    stateLocalData.funfacts = state.funfacts;
+    if(state){
+        stateLocalData.funfacts = state.funfacts;
+    }
+    
     res.json(stateLocalData);
 };
 
 const getStateFacts = async(req, res) =>{
     //Get state object from MongoDB
-    const state = await StateList.findOne({ _stateCode: req.code}).exec();
+    const state = await StateList.findOne({ stateCode: req.code}).exec();
     
     //Generate a random index
     let randIndex = Math.floor(Math.random() * (state.funfacts.length - 1));
@@ -122,7 +125,7 @@ const patchFunFact = async(req, res) => {
     if(!req?.body?.index) return res.status(400).json({ 'message': 'Index required' });
 
     //Find DB entry
-    const state = await StateList.findOne({ _stateCode: req.code}).exec();
+    const state = await StateList.findOne({ stateCode: req.code}).exec();
 
     let factIndex = req.body.index - 1;
     //If index is outside list size, 400 status
@@ -142,7 +145,7 @@ const deleteFunFact = async(req, res) => {
     if(!req?.body?.index) return res.status(400).json({ 'message': 'Index required' });
 
     //Find DB entry
-    const state = await StateList.findOne({ _stateCode: req.code}).exec();
+    const state = await StateList.findOne({ stateCode: req.code}).exec();
 
     let factIndex = req.body.index - 1;
     //If index is outside list size, 400 status

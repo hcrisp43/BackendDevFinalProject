@@ -121,3 +121,10 @@
 20220509	16:36:27	ac5eb43f-cf91-4050-b73c-22ee30116630	GET	undefined	/states/?contig=false
 20220509	16:36:47	58d06a28-d6c8-4d16-93d6-d2bdda69340d	GET	undefined	/states/?contig=false
 20220509	16:37:14	c53f5081-457f-4173-9e68-3dd34a30759c	GET	undefined	/states/?contig=true
+20220509	23:55:25	235167ff-30bf-4623-9f7a-19d28df44412	GET	undefined	/states/KS/capital
+20220510	14:56:05	a88e10db-5b2f-41ff-9567-3da38d58c414	GET	undefined	/states/KS/funfact
+20220510	15:15:21	30868603-17ba-47fc-9585-7b0deb977639	GET	undefined	/states/NH
+20220510	15:16:30	bf0522a5-7fef-4b24-809f-16c49e08a235	GET	undefined	/states/NH
+20220510	15:16:45	d4dffa2c-d333-4c4e-90a8-1ff25c4bd078	GET	undefined	/states/NH
+20220510	15:17:15	6cf7a18c-5f3d-4438-ba86-abaa2dd5fc8e	GET	undefined	/states/NH
+20220510	15:18:03	127a2ceb-e90a-4022-b88f-71d51432e33c	GET	undefined	/states/NH
