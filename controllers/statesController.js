@@ -19,7 +19,7 @@ const getAllStates = async (req, res) => {
         //else give it an empty array
         else state.funfacts = [];
     });*/
-    allStates = statesJSONData;
+    let allStates = statesJSONData;
     //console.log(allStates);
 
     //If contiguous, filter
