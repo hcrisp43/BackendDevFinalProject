@@ -124,17 +124,22 @@ const addNewStateFacts = async(req, res) =>{
 
 const patchFunFact = async(req, res) => {
     //Check funfact is set
-    if(!req?.body?.funfact) return res.status(400).json({ 'message': 'Fun facts requried'});
+    if(!req?.body?.funfact) return res.status(400).json({ 'message': 'State fun fact value required'});
 
     //Check if index is set
-    if(!req?.body?.index) return res.status(400).json({ 'message': 'Index required' });
+    if(!req?.body?.index) return res.status(400).json({ 'message': 'State fun fact index value required' });
 
     //Find DB entry
     const state = await StateList.findOne({ stateCode: req.code}).exec();
 
+    //Get state object from states.json
+    const stateLocalData = statesJSONData.find(st => st.code === req.code);
+
+    if(!state?.funfact) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}` });
+
     let factIndex = req.body.index - 1;
     //If index is outside list size, 400 status
-    if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': 'Index is not in funfacts' });
+    if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': `No Fun Fact found at that index for ${stateLocalData.state}` });
 
     //Set funfact at index to body of req
     state.funfacts[factIndex] = req.body.funfact;
@@ -147,14 +152,22 @@ const patchFunFact = async(req, res) => {
 const deleteFunFact = async(req, res) => {
 
     //Check if index is set
-    if(!req?.body?.index) return res.status(400).json({ 'message': 'Index required' });
+    if(!req?.body?.index) return res.status(400).json({ 'message': 'State fun fact value required' });
+
+    //Check if index is set
+    if(!req?.body?.index) return res.status(400).json({ 'message': 'State fun fact index value required' });
 
     //Find DB entry
     const state = await StateList.findOne({ stateCode: req.code}).exec();
 
+    //Get state object from states.json
+    const stateLocalData = statesJSONData.find(st => st.code === req.code);
+
+    if(!state?.funfact) res.status(400).json({ 'message': `No Fun Facts found for ${stateLocalData.state}` });
+
     let factIndex = req.body.index - 1;
     //If index is outside list size, 400 status
-    if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': 'Index is not in funfacts' });
+    if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': `No Fun Fact found at that index for ${stateLocalData.state}` });
 
     //Delete funfact at index
     state.funfacts = state.funfacts.splice(factIndex, factIndex);
