@@ -176,3 +176,4 @@
 20220511	15:55:30	d50fb345-3834-4810-abff-bde5f4ee5d0e	POST	undefined	/states/OR/funfact
 20220511	16:07:41	f2b402e7-0483-49ec-88ba-7842e66c0d9a	GET	undefined	/states/OR/funfact
 20220511	16:09:41	0f49d3d0-7b9a-4060-9e70-b2ae6d98aaec	DELETE	undefined	/states/KS/funfact
+20220511	17:32:49	1471b411-0704-446d-b809-935504491449	DELETE	undefined	/states/KS/funfact
