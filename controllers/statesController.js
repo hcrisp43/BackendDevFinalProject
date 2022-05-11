@@ -27,7 +27,7 @@ const getAllStates = async (req, res) => {
         allStates = allStates.filter(state => state.code != 'HI' && state.code != 'AK');
     }
     if(req.query.contig == "false"){
-        console.log("here");
+        
         allStates = allStates.filter(state => state.code === 'HI' || state.code === 'AK');
     }
 
@@ -178,7 +178,7 @@ const deleteFunFact = async(req, res) => {
         if(factIndex > state.funfacts.length) return res.status(400).json({ 'message': `No Fun Fact found at that index for ${stateLocalData.state}` });
 
         //Delete funfact at index
-        state.funfacts.splice(factIndex, factIndex);
+        state.funfacts.splice(factIndex, 1);
 
 
         //Save and return result
